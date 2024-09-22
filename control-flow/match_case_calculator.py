@@ -13,6 +13,7 @@ match operation:
             print('Cannot divide by zero.')
         else:
             result = num1 / num2
+            print(f'The result is {result}.')
 
-if operation != '/' and num2 != 0:
+if operation != '/':
     print(f'The result is {result}.')
