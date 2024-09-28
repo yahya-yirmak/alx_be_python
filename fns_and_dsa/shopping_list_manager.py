@@ -10,26 +10,26 @@ def main():
     shopping_list = []
     while True:
         display_menu()
-        choice = input("Enter your choice: ")
+        choice = int(input("Enter your choice: "))
 
-        if choice == '1':
+        if choice == 1:
             name = input('Enter your name: ')
             if name in shopping_list:
                 print(f'{name} is already exists.')
             else:
                 shopping_list.append(name)
 
-        elif choice == '2':
+        elif choice == 2:
             name = input('Enter your name: ')
             if name in shopping_list:
                 shopping_list.remove(name)
             else:
                 print(f'{name} does not exist.')
         
-        elif choice == '3':
+        elif choice == 3:
             print(shopping_list)
 
-        elif choice == '4':
+        elif choice == 4:
             print("Goodbye!")
             break
         else:
