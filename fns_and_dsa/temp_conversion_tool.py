@@ -1,37 +1,34 @@
-# Define Global Conversion Factors
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
-# Function to convert Fahrenheit to Celsius
+# GLOBAL VARIABLES :
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
+
+# FUNCTION TO CONVERT FROM FAHRENHEIT TO CELSIUS :
 def convert_to_celsius(fahrenheit):
-    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    global FAHRENHEIT_TO_CELSIUS_FACTOR
+    return FAHRENHEIT_TO_CELSIUS_FACTOR * (fahrenheit - 32)
 
-# Function to convert Celsius to Fahrenheit
+# FUNCTION TO CONVERT FROM CELSIUS TO FAHRENHEIT :
 def convert_to_fahrenheit(celsius):
-    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+    global CELSIUS_TO_FAHRENHEIT_FACTOR
+    return (CELSIUS_TO_FAHRENHEIT_FACTOR * celsius) + 32
 
-# Function to interact with the user
-def user_interaction():
+while True:
+    user_input = input('Enter the temperature to convert: ')
     try:
-        # Prompt user for temperature
-        temperature = float(input("Enter the temperature: "))
-        
-        # Prompt user for the scale
-        scale = input("Is the temperature in (C)elsius or (F)ahrenheit? ").strip().lower()
-        
-        # Check and perform the appropriate conversion
-        if scale == 'c':
-            fahrenheit = convert_to_fahrenheit(temperature)
-            print(f"{temperature}°C is {fahrenheit:.2f}°F")
-        elif scale == 'f':
-            celsius = convert_to_celsius(temperature)
-            print(f"{temperature}°F is {celsius:.2f}°C")
-        else:
-            print("Invalid scale. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
-    
-    except ValueError:
+        user_input = float(user_input)
+        break
+    except:
         print("Invalid temperature. Please enter a numeric value.")
+    
+unit = input('Is this temperature in Celsius or Fahrenheit? (C/F): ').capitalize()
+while unit not in ('C', 'F'):
+    unit = input('Is this temperature in Celsius or Fahrenheit? (C/F): ').capitalize()
 
-# Main function to execute the script
-if __name__ == "__main__":
-    user_interaction()
+if __name__ == '__main__':
+    if unit == 'C':
+        fahrenheit = convert_to_fahrenheit(user_input)
+        print(f"{user_input}°C is {fahrenheit}°F")
+    else:
+        celsius = convert_to_celsius(user_input)
+        print(f"{user_input}°F is {celsius}°C")
