@@ -4,6 +4,20 @@ class Book:
         self.title = title
         self.author = author
         self.is_checked_out = False
+    
+    def check_out(self):
+        if not self.is_checked_out:
+            self.is_checked_out = True
+            print(f"{self.title} by {self.author} has been checked out.")
+        else:
+            print(f"{self.title} by {self.author} is already checked out.")
+
+    def return_book(self):
+        if self.is_checked_out:
+            self.is_checked_out = False
+            print(f"{self.title} by {self.author} has been returned.")
+        else:
+            print(f"{self.title} by {self.author} was not checked out.")
 
 class Library:
 
