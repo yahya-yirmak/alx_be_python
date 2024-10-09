@@ -27,11 +27,11 @@ class Library:
         self.books = []
 
     def add_book(self, book):
-        if book not in Library.books:
-            Library.books.append(book)
+        if book not in self.books:
+            self.books.append(book)
 
     def list_books(self):
-        for book in Library.books:
+        for book in self.books:
             if isinstance(book, Book):
                 print(f"Book: {book.title} by {book.author}")
             elif isinstance(book, EBook):
